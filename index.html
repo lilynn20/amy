@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <!-- Standard Meta -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f6c342">
+    <meta name="description" content="Atelier Mécanique Youssef est un atelier de mécanique automobile offrant des services de haute qualité pour une variété de modèles de voitures. Faites-nous confiance pour des services fiables et durables.">
+    <meta name="keywords" content="Atelier Mécanique Youssef, mécanique automobile, services de qualité, atelier, réparation automobile">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://atelier-youssef.com/">
+    <meta property="og:title" content="Atelier Mécanique Youssef | Services de Mécanique Automobile de Qualité">
+    <meta property="og:description" content="Atelier de mécanique automobile offrant des services de haute qualité pour une variété de modèles de voitures.">
+    <meta property="og:image" content="https://atelier-youssef.com/media/logos/og-image.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://atelier-youssef.com/">
+    <meta property="twitter:title" content="Atelier Mécanique Youssef | Services de Mécanique Automobile de Qualité">
+    <meta property="twitter:description" content="Atelier de mécanique automobile offrant des services de haute qualité pour une variété de modèles de voitures.">
+    <meta property="twitter:image" content="https://atelier-youssef.com/media/logos/og-image.jpg">
+
+    <!-- Site Properties -->
+    <title>Atelier Mécanique Youssef | Services de Mécanique Automobile de Qualité</title>
+    <link rel="shortcut icon" href="media/logos/favicon.ico" type="image/x-icon">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#ed683e', /* orange from logo */
+                        secondary: '#222424', /* darker gray for better contrast */
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        html, body {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .page-loader {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 9999;
+            background: rgba(255, 255, 255, 0.9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .page-loader div {
+            width: 20px;
+            height: 20px;
+            background: #e04e1b; /* orange from logo */
+            border-radius: 50%;
+            margin: 0 5px;
+            animation: bounce 1s infinite ease-in-out;
+        }
+        .page-loader div:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+        .page-loader div:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .hero-slide {
+            height: 700px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        .hero-slide::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .contact-input:focus {
+            outline: none;
+            border-color: #e04e1b; /* orange from logo */
+            box-shadow: 0 0 0 3px rgba(224, 78, 27, 0.2);
+        }
+    </style>
+</head>
+
+<body class="font-sans bg-gray-50 text-gray-800 m-0 p-0">
+    <div class="page-loader">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    
+    <!-- Header -->
+    <header class="bg-secondary shadow-lg sticky top-0 z-50">
+        <nav class="container mx-auto px-4 py-0 flex justify-between items-center">
+            <a href="/" class="flex items-center space-x-2">
+                <img src="logo.png" alt="Atelier Mécanique Youssef" class="w-20 h-20 rounded-full">
+                <span class="text-white font-bold text-xl hidden sm:inline">Atelier Mécanique Youssef</span>
+            </a>
+            
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="/" class="text-white hover:text-primary transition duration-300 font-medium">Accueil</a>
+                <a href="#about" class="text-white hover:text-primary transition duration-300 font-medium">À propos</a>
+                <a href="#services" class="text-white hover:text-primary transition duration-300 font-medium">Services</a>
+                
+                <a href="#contact" class="text-white hover:text-primary transition duration-300 font-medium">Contact</a>
+            </div>
+            
+            <div class="flex items-center space-x-4">
+                <a href="tel:+1234567890" class="text-white hover:text-primary transition duration-300 md:hidden">
+                    <i class="fas fa-phone-alt"></i>
+                </a>
+<a href="login.html" class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-yellow-600 transition duration-300 font-medium flex items-center space-x-2">
+                    <i class="fas fa-user"></i>
+                    <span>Connexion</span>
+                </a>
+                <button class="md:hidden text-white focus:outline-none" id="mobile-menu-button">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </nav>
+        
+        <!-- Mobile menu -->
+        <div class="md:hidden hidden bg-secondary px-4 py-2" id="mobile-menu">
+            <a href="/" class="block text-white py-2 hover:text-primary">Accueil</a>
+            <a href="#about" class="block text-white py-2 hover:text-primary">À propos</a>
+            <a href="#services" class="block text-white py-2 hover:text-primary">Services</a>
+            
+            <a href="#contact" class="block text-white py-2 hover:text-primary">Contact</a>
+            <a href="tel:+1234567890" class="block text-white py-2 hover:text-primary">
+                <i class="fas fa-phone-alt mr-2"></i> Appelez-nous
+            </a>
+        </div>
++    </header>
+    
+    <main>
+        <!-- Hero Slider -->
+        <section class="relative">
+            <div class="hero-slide flex items-center justify-center" style="background-image: url('bgintro.png');">
+                <div class="text-center relative z-10 px-4">
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">LA QUALITÉ EST NOTRE PRIORITÉ</h1>
+                    <p class="text-xl text-white mb-8 max-w-3xl mx-auto">Des services mécaniques de haute qualité pour votre véhicule, effectués par des professionnels expérimentés.</p>
+                    <a href="#contact" class="bg-primary text-white px-8 py-3 rounded-lg text-lg font-semibold hover:bg-yellow-600 transition duration-300 inline-block">Prendre rendez-vous</a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- About Section -->
+        <section id="about" class="py-16 bg-white">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Atelier Mécanique Youssef</h2>
+                    <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
+                    <p class="text-lg text-gray-600 max-w-3xl mx-auto">Nous sommes un leader dans le domaine de la mécanique automobile, offrant des services de réparation et d'entretien de haute qualité depuis plus de 15 ans.</p>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-4">Notre Expertise</h3>
+                        <p class="text-gray-600 mb-6">Notre équipe de mécaniciens certifiés possède une expertise approfondie dans tous les aspects de la mécanique automobile moderne. Nous utilisons des outils de diagnostic de pointe et des pièces de qualité pour garantir des réparations durables.</p>
+                        
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <div class="text-primary mr-4 mt-1">
+                                    <i class="fas fa-check-circle text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-800">Techniciens certifiés</h4>
+                                    <p class="text-gray-600">Nos mécaniciens sont formés et certifiés par les plus grands constructeurs automobiles.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="text-primary mr-4 mt-1">
+                                    <i class="fas fa-check-circle text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-800">Équipement moderne</h4>
+                                    <p class="text-gray-600">Nous investissons continuellement dans les dernières technologies de diagnostic et réparation.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="text-primary mr-4 mt-1">
+                                    <i class="fas fa-check-circle text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-800">Garantie sur les réparations</h4>
+                                    <p class="text-gray-600">Toutes nos réparations sont couvertes par une garantie écrite pour votre tranquillité d'esprit.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                <div class="rounded-lg overflow-hidden shadow-xl">
+                    <img src="inside.png" alt="Intérieur de notre atelier" class="w-full h-auto object-cover">
+                </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Services Section -->
+        <section id="services" class="py-16 bg-gray-50">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Nos Services</h2>
+                    <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
+                    <p class="text-lg text-gray-600 max-w-3xl mx-auto">Nous offrons une gamme complète de services pour répondre à tous vos besoins en matière d'entretien et de réparation automobile.</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Service 1 -->
+                    <div class="service-card bg-white rounded-xl shadow-md overflow-hidden transition duration-300 hover:shadow-xl">
+                        <div class="h-48 overflow-hidden">
+                            <img src="engine.png" alt="Réparation de Moteur" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Réparation de Moteur</h3>
+                            <p class="text-gray-600 mb-4">Diagnostic et réparation complète des problèmes moteur, des simples réglages aux réparations majeures.</p>
+                            <a href="#contact" class="text-primary font-medium inline-flex items-center">
+                                En savoir plus <i class="fas fa-arrow-right ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Service 2 -->
+                    <div class="service-card bg-white rounded-xl shadow-md overflow-hidden transition duration-300 hover:shadow-xl">
+                        <div class="h-48 overflow-hidden">
+                            <img src="breaks.jpg" alt="Entretien de Freins" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Entretien de Freins</h3>
+                            <p class="text-gray-600 mb-4">Inspection, réparation et remplacement des systèmes de freinage pour garantir votre sécurité sur la route.</p>
+                            <a href="#contact" class="text-primary font-medium inline-flex items-center">
+                                En savoir plus <i class="fas fa-arrow-right ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Service 3 -->
+                    <div class="service-card bg-white rounded-xl shadow-md overflow-hidden transition duration-300 hover:shadow-xl">
+                        <div class="h-48 overflow-hidden">
+                            <img src="vidange.jpg" alt="Changement d'Huile" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Service rapide</h3>
+                            <p class="text-gray-600 mb-4">Service rapide de vidange d'huile avec des lubrifiants de qualité supérieure pour protéger votre moteur.</p>
+                            <a href="#contact" class="text-primary font-medium inline-flex items-center">
+                                En savoir plus <i class="fas fa-arrow-right ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Service 4 -->
+                    
+            <div></div>
+                <div class="text-center mt-12">
+                    <a href="#contact" class="bg-primary text-white px-8 py-3 rounded-lg text-lg font-semibold hover:bg-yellow-600 transition duration-300 inline-flex items-center">
+                        <i class="fas fa-calendar-alt mr-2"></i> Prendre rendez-vous
+                    </a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Testimonials Section -->
+        <section class="py-16 bg-primary bg-opacity-10">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Témoignages</h2>
+                    <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
+                    <p class="text-lg text-gray-600 max-w-3xl mx-auto">Ce que nos clients disent de nous</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Testimonial 1 -->
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <div class="flex items-center mb-4">
+                            <div class="text-yellow-400 mr-2">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 mb-4">"J'ai été impressionné par le professionnalisme et l'expertise de l'équipe. Ma voiture n'a jamais aussi bien fonctionné!"</p>
+                        <div class="flex items-center">
+                            <img src="/media/client1.jpg" alt="Client" class="w-10 h-10 rounded-full mr-3">
+                            <div>
+                                <h4 class="font-semibold text-gray-800">Mohamed K.</h4>
+                                <p class="text-sm text-gray-500">Client depuis 2018</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonial 2 -->
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <div class="flex items-center mb-4">
+                            <div class="text-yellow-400 mr-2">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 mb-4">"Service rapide et efficace. Ils ont identifié le problème que d'autres ateliers n'arrivaient pas à trouver. Je recommande vivement!"</p>
+                        <div class="flex items-center">
+                            <img src="/media/client2.jpg" alt="Client" class="w-10 h-10 rounded-full mr-3">
+                            <div>
+                                <h4 class="font-semibold text-gray-800">Sophie L.</h4>
+                                <p class="text-sm text-gray-500">Client depuis 2020</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonial 3 -->
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <div class="flex items-center mb-4">
+                            <div class="text-yellow-400 mr-2">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 mb-4">"Des prix honnêtes et un travail de qualité. Je fais confiance à Youssef et son équipe pour l'entretien de toutes nos voitures familiales."</p>
+                        <div class="flex items-center">
+                            <img src="/media/client3.jpg" alt="Client" class="w-10 h-10 rounded-full mr-3">
+                            <div>
+                                <h4 class="font-semibold text-gray-800">Karim B.</h4>
+                                <p class="text-sm text-gray-500">Client depuis 2015</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Contact Section -->
+        <section id="contact" class="py-16 bg-white">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Contactez-Nous</h2>
+                    <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
+                    <p class="text-lg text-gray-600 max-w-3xl mx-auto">Si vous avez des questions concernant nos services, n'hésitez pas à nous contacter. Notre équipe est à votre disposition pour répondre à toutes vos demandes.</p>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-12">
+                    <div>
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-6">Informations de contact</h3>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="text-primary mr-4 mt-1">
+                                    <i class="fas fa-map-marker-alt text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-800">Adresse</h4>
+                                    <p class="text-gray-600">N772 BIS B LOT QI AIT MELLOUL, INEZGANE-AIT MELLOUL</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="text-primary mr-4 mt-1">
+                                    <i class="fas fa-phone-alt text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-800">Téléphone</h4>
+                                    <p class="text-gray-600">
+                                        <a href="tel:+212661612877" class="hover:text-primary transition">+212 6 61 61 48 77<br></a>
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="text-primary mr-4 mt-1">
+                                    <i class="fas fa-envelope text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-800">Email</h4>
+                                    <p class="text-gray-600">
+                                        <a href="mailto:contact@atelier-youssef.com" class="hover:text-primary transition">abdeddaim.amy@gmail.com</a>
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="text-primary mr-4 mt-1">
+                                    <i class="fas fa-clock text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-800">Heures d'ouverture</h4>
+                                    <p class="text-gray-600">Lundi - Vendredi: 8h30 - 12h00 et 14h00 - 18h00</p>
+                                    <p class="text-gray-600">Samedi: 8h30 - 12h00 et 14h00 - 16h00</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-8">
+                            <h4 class="font-semibold text-gray-800 mb-4">Suivez-nous</h4>
+                            <div class="flex space-x-4">
+                                <a href="#" class="text-gray-600 hover:text-primary transition text-xl">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="#" class="text-gray-600 hover:text-primary transition text-xl">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="#" class="text-gray-600 hover:text-primary transition text-xl">
+                                    <i class="fab fa-whatsapp"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <form method="post" action="/contactform" class="space-y-4">
+                            <div>
+                                <label for="name" class="block text-gray-700 font-medium mb-1">Nom complet *</label>
+                                <input type="text" id="name" name="name" required class="contact-input w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
+                            </div>
+                            
+                            <div>
+                                <label for="phone" class="block text-gray-700 font-medium mb-1">Téléphone *</label>
+                                <input type="tel" id="phone" name="phone" required class="contact-input w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
+                            </div>
+                            
+                            <div>
+                                <label for="subject" class="block text-gray-700 font-medium mb-1">Sujet *</label>
+                                <input type="text" id="subject" name="subject" required class="contact-input w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent">
+                            </div>
+                            
+                            <div>
+                                <label for="message" class="block text-gray-700 font-medium mb-1">Message *</label>
+                                <textarea id="message" name="message" rows="4" required class="contact-input w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"></textarea>
+                            </div>
+                            
+                            <button type="submit" class="bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-yellow-600 transition duration-300 w-full">
+                                Envoyer le message
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Map Section -->
+        <section class="bg-gray-100">
+            <div class="container mx-auto px-4">
+                <div class="h-96 rounded-xl overflow-hidden shadow-lg">
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d723.9433582603957!2d-9.49546456307455!3d30.331778817095138!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xdb3c64df76aaff9%3A0xf4a9ea324ecc27a5!2sAtelier%20M%C3%A9canique%20Youssef!5e0!3m2!1sen!2sma!4v1753446556161!5m2!1sen!2sma" class="w-full h-full" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="bg-secondary text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Atelier Mécanique Youssef</h3>
+                    <p class="text-gray-300">Des services mécaniques de haute qualité pour votre véhicule, effectués par des professionnels expérimentés.</p>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Liens rapides</h4>
+                    <ul class="space-y-2">
+                        <li><a href="/" class="text-gray-300 hover:text-primary transition">Accueil</a></li>
+                        <li><a href="#services" class="text-gray-300 hover:text-primary transition">Services</a></li>
+                        <li><a href="#about" class="text-gray-300 hover:text-primary transition">À propos</a></li>
+                        <li><a href="#contact" class="text-gray-300 hover:text-primary transition">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Services</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-300 hover:text-primary transition">Réparation de Moteur</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-primary transition">Entretien de Freins</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-primary transition"></a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-primary transition">Service Rapide</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Contact</h4>
+                    <address class="not-italic text-gray-300">
+                        <p class="mb-2">Lot B N° 772 bis BP1198 QUARTIER INDUSTRIEL Aït Melloul</p>
+                        <p class="mb-2">QUARTIER INDUSTRIEL Aït Melloul</p>
+                        <p class="mb-2">
+                            <a href="tel:+212612345678" class="hover:text-primary transition">+212 6 12 34 56 78</a>
+                        </p>
+                        <p>
+                            <a href="mailto:contact@atelier-youssef.com" class="hover:text-primary transition">abdeddaim.amy@gmail.com</a>
+                        </p>
+                    </address>
+                </div>
+            </div>
+            <div class="mt-12 text-center">
+                <a href="https://www.facebook.com/atelier.youssef.3" class="text-gray-300 hover:text-primary transition mx-2">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://www.instagram.com/atelier_youssef/" class="text-gray-300 hover:text-primary transition mx-2">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://wa.me/+212661612877" class="text-gray-300 hover:text-primary transition mx-2">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; <span id="thisyear"></span> Atelier Mécanique Youssef. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Back to top button -->
+    <a href="#" class="fixed bottom-8 right-8 bg-primary text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg hover:bg-yellow-600 transition duration-300 z-40" id="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+    
+    <!-- JavaScript -->
+    <script>
+        // Page loader
+        window.addEventListener('load', function() {
+            document.querySelector('.page-loader').style.display = 'none';
+        });
+        
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+        
+        // Back to top button
+        const backToTopButton = document.getElementById('back-to-top');
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                backToTopButton.style.display = 'flex';
+            } else {
+                backToTopButton.style.display = 'none';
+            }
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    const mobileMenu = document.getElementById('mobile-menu');
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+        
+        // Set current year in footer
+        document.getElementById('thisyear').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
